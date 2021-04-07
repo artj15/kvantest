@@ -19,14 +19,16 @@ class ContactDetailView(RetrieveUpdateDestroyAPIView):
     serializer_class = ContactSerializer
     permission_classes = (permissions.IsAuthenticated, )
 
-    lookup_field = 'id'
+    lookup_field = 'first_name'
 
     def get_queryset(self):
         return Contact.objects.filter(owner = self.request.user)
 
+class ContactDetailViewNumber(RetrieveUpdateDestroyAPIView):
+    serializer_class = ContactSerializer
+    permission_classes = (permissions.IsAuthenticated, )
 
-class List(TemplateView):
-    template_name = 'contactlist.html'
-    def get(self, request):
-        all_contacts = List.objects.all()
+    lookup_field = 'phone_number'
 
+    def get_queryset(self):
+        return Contact.objects.filter(owner = self.request.user)
