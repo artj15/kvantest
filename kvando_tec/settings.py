@@ -54,24 +54,13 @@ REST_FRAMEWORK = {
 
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
-        "Auth Token eg [Bearer (JWT) ]": {
+        "Токен [Bearer (JWT) ]": {
             "type": "apiKey",
             "name": "Authorization",
             "in": "header"
         }
     }
 }
-
-# SWAGGER_SETTINGS ={
-#     'SECURITY_DEFINITIONS': {
-#         'Токен':{
-#             'type': 'apiKey',
-#             'name': 'Autharization',
-#             'in': 'Header',
-#
-#         }
-#     }
-# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
