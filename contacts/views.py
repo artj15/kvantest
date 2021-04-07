@@ -3,6 +3,7 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from .models import Contact
 from .serializers import ContactSerializer
 from rest_framework import permissions
+from django.views.generic import  TemplateView
 # Create your views here.
 
 class ContactList(ListCreateAPIView):
@@ -22,4 +23,10 @@ class ContactDetailView(RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         return Contact.objects.filter(owner = self.request.user)
+
+
+class List(TemplateView):
+    template_name = 'contactlist.html'
+    def get(self, request):
+        all_contacts = List.objects.all()
 
