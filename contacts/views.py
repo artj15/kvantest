@@ -15,7 +15,7 @@ class ContactList(ListCreateAPIView):
         return Contact.objects.filter(owner = self.request.user)
 
 
-class ContactDetailView(RetrieveUpdateDestroyAPIView):
+class ContactDetailViewFirstName(RetrieveUpdateDestroyAPIView):
     serializer_class = ContactSerializer
     permission_classes = (permissions.IsAuthenticated, )
 
@@ -24,7 +24,7 @@ class ContactDetailView(RetrieveUpdateDestroyAPIView):
     def get_queryset(self):
         return Contact.objects.filter(owner = self.request.user)
 
-class ContactDetailViewNumber(RetrieveUpdateDestroyAPIView):
+class ContactDetailViewPhoneNumber(RetrieveUpdateDestroyAPIView):
     serializer_class = ContactSerializer
     permission_classes = (permissions.IsAuthenticated, )
 
@@ -32,3 +32,4 @@ class ContactDetailViewNumber(RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         return Contact.objects.filter(owner = self.request.user)
+

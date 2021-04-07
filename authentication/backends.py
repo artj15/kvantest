@@ -8,7 +8,7 @@ class JWTAuthentication(authentication.BaseAuthentication):
         auth_date = authentication.get_authorization_header(request)
         if not auth_date:
             return None
-        prefix, token = auth_date.decode('utf-8').split(' ')
+        token = auth_date.decode('utf-8')
         try:
             payload = jwt.decode(token, settings.JWT_SECRET_KEY, algorithms= 'HS256')
             user = User.objects.get(username = payload['username'])

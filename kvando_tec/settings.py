@@ -54,7 +54,7 @@ REST_FRAMEWORK = {
 
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
-        "Токен [Bearer (JWT) ]": {
+        "Пройдите авторизацию/регистрацию и скопируйте токен": {
             "type": "apiKey",
             "name": "Authorization",
             "in": "header"
@@ -137,11 +137,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:80"
-]
 
 
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:80"
+# ]
 
 
 
